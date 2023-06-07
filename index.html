@@ -67,7 +67,7 @@
 		  						<a class="drop-pdf text-decoration-none d-flex flex-column justify-content-center align-items-center">
 		  							<img src="img/update-file.svg" alt="img">
 		  							<p class="update-text update-drag mb-2">拖曳文件至此，或<span><label for="get_pdf" id="select-pdf-text">選擇檔案</label></span></p>
-		  							<p class="update-text">支援檔案類型：PDF ● ≦20mb</p>
+		  							<p class="update-text">支援檔案類型：PDF  ≦ 20mb</p>
 		  						</a>
 		  					</div>
 		  				</div>
@@ -118,12 +118,17 @@
 		  					  				<button title="重做">
 		  					  					<img src="img/edit-tool-2.svg" alt="重做">
 		  					  				</button>
-		  					  				<button title="重新整理">
+		  					  				<button title="重新整理" id="clear">
 		  					  					<img src="img/edit-tool-3.svg" alt="重新整理">
 		  					  				</button>
 		  					  			</div>
 		  					  		</div>
-		  					  		<canvas id="sign-canvas" width="500" height="200"></canvas>
+		  					  		<canvas
+										id="canvas"
+										width="500"
+										height="300"
+										>
+									</canvas>
 		  					  	</div>
 		  					  	<div class="file-editor mt-3">
 		  					  		<p class="fs-5">簽名檔名稱</p>
@@ -141,7 +146,7 @@
 		  					  		<a class="drop-file text-decoration-none d-flex flex-column justify-content-center align-items-center">
 		  					  			<img src="img/update-file.svg" alt="img">
 		  					  			<p class="update-text update-drag mb-2">拖曳簽名圖檔至此，或<span><label for="get_file" id="select-file-text">選擇檔案</label></span></p>
-		  					  			<p class="update-text">支援檔案類型：PNG, JPEG ● ≦5mb</p>
+		  					  			<p class="update-text">支援檔案類型：PNG, JPEG ≦ 5mb</p>
 		  					  		</a>
 		  					  	</div>
 		  					  </div>
@@ -150,7 +155,6 @@
 		  				<div class="button-group mt-3">
 		  					<button class="clean-canvas btn px-5 py-2 btn-rd btn-secondary" type="reset" id="uploadCancel">清除圖檔</button>
 		  					<button class="save-canvas btn px-5 py-2 btn-rd btn-primary btn-pr-shadow ms-4">儲存結果</button>
-		  					<input type="reset">
 		  				</div>
 		  			</div>
 		  		</div>
@@ -169,6 +173,7 @@
 		  </div>
 		</div>
 	</main>
+	<script src="canvas.js"></script>
 </body>
 <footer>
 	<p class="copy-right">© 2009-2022 Kdan Mobile Software Ltd. All Rights Reserved.</p>
