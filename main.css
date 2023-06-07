@@ -1,3 +1,296 @@
-body.nav-doc{
-    background-image: url(img/bg-desktop-1.png);
+:root {
+    --bs-primary: #4F61E8;
+    --bs-secondary: #EF7054;
+    --bs-dark:#1E2F61;
+    --black:#2E2E2E;
+    --bg-color:#F2FDFF;
+    --bs-light:#F2FDFF;
+}
+body {
+    background-color: var(--bg-color);
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    font-family: 'Roboto Slab','Noto Sans TC';
+}
+body.defualt, body.nav-doc {
+    background-image: url(img/bg-desktop-1.png);   
+}
+body.nav-sign,body.nav-setting {
+    background-image: url(img/bg-desktop-2.png);   
+}
+main {
+    position: relative;
+}
+/* button */
+button {    
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+.btn-rd {
+    border-radius: 100px;
+}
+.btn-rd-shadow {
+    border: none;
+    outline: none;
+    box-shadow: 0px 2px 20px -4px #CDDDE1;
+}
+.btn-pr-shadow {
+    border: none;
+    outline: none;
+    box-shadow: 0px 2px 20px -4px #17237A;
+}
+.btn-white {
+    background-color: #fff;
+    color: var(--bs-primary);
+}
+.btn-primary {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+    box-shadow: 0px 2px 20px -4px #17237A;
+}
+.btn-primary:hover {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+    box-shadow: none;
+}
+.btn-secondary {
+    background-color:#fff;
+    border-color: #fff;
+    color: var(--bs-primary);
+    box-shadow: 0px 2px 20px -8px #6DA9B7;
+}
+.btn-secondary:hover {
+    background-color: #fff;
+    border-color: var(--bs-primary);
+    color: var(--bs-primary);
+    box-shadow: none;
+}
+/*header*/
+.nav-logo img {
+    height: 25px;
+    width: auto;
+}
+#menu-tab {
+    background-color: #fff;
+    box-shadow: 0px 2px 20px -4px #cddde1;
+    border-radius: 100px;
+    padding: .25em .7em;
+}
+.nav-item:last-child {
+    margin-left: 3em;
+}
+.nav-item:last-child .nav-link img {
+    height: 32px;
+    width: auto;
+    border: 1px solid rgba(46, 46, 46, 0.2);
+    border-radius: 100px;
+    padding: 2px;
+}
+.nav-item:not(:last-child) .nav-link {
+    filter: grayscale(1) brightness(1.5);
+}
+.nav-link img {
+    margin-right: 5px;
+}
+.nav-item .nav-link:hover, .nav-item .nav-link.active {
+    color: #4f61e8;
+    filter: grayscale(0) brightness(1);
+    font-weight: bold;
+}
+
+/* tab-page */
+.page-title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+h2.slogan {
+   font-size: 4rem; 
+}
+p.slogan {
+    font-size: 1.5rem;
+}
+#doc .page-title {
+    color: var(--bs-dark);
+}
+#sign .page-title {
+    color: var(--bs-primary);
+}
+.tab-pane {
+    display: none;
+}
+.tab-pane.show {
+    display: block;
+}
+.tab-content {
+    min-height: 80vh;
+}
+#signcard-tab {
+    border-bottom: 1px solid rgba(46, 46, 46, 0.2);
+}
+#signcard-tab .nav-link {
+    color: rgba(46, 46, 46, 0.5);
+}
+#signcard-tab .nav-link.active {
+    color: var(--bs-primary);
+    font-weight: bold;
+    border-bottom: 2px solid var(--bs-primary);
+}
+.card {
+    border: none;
+}
+.card-creat-sign {
+    margin: 5% 0;
+}
+.card-edit-area {
+    background: #EEF7F9;
+    border-radius: 32px;
+    position: relative;
+    font-size: 14px;
+}
+.card-tool-header {
+    background-color: #fff;
+    box-shadow: 0px 2px 20px -4px #CDDDE1;
+}
+.card-edit-area:after {
+    position: absolute;
+    content: '在此範圍內進行簽署';
+    color: #728F9B;
+    left: 40%;
+    bottom: 45%;
+}
+.card-drag-pdf {
+    background-color: #fff;
+    border-radius: 32px;
+    padding: 1.5em;
+    margin: 25% 0;
+}
+
+/*.drop-pdf {
+    height: 40vh;
+}*/
+.drag-file-block, .card-drag-file {
+    background: #EEF7F9;
+    border-radius: 32px;
+    border: 1px dashed #728F9B;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+.file-editor, .update-text, .update-name {
+    color: #728F9B;
+}
+.update-drag {
+    margin: 1rem auto;
+}
+input.edit-name, input.edit-name:focus {
+    border: none;
+    border-bottom: 2px solid var(--bs-primary);
+    outline: none;
+    font-family: 'Roboto Slab','Noto Sans TC';
+}
+input.edit-name:focus {
+    border-bottom: 2px solid var(--bs-dark);
+}
+#select-file-text, #select-pdf-text {
+    color: var(--bs-primary);
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;
+    margin: 0 5px;
+}
+.dragging {
+    border: 1px solid var(--bs-primary);
+}
+.upload-img:empty, .upload-pdf:empty {
+    display: none;
+}
+.upload-img, .upload-pdf {
+    background: #1E2F61;
+    box-shadow: 0px 2px 20px -4px #636a6b;
+    border-radius: 4px;
+    color: #fff;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 5%;
+    right: -20%;
+    animation: fadeinRight 1s ease-in-out;
+}
+.upload-img b, .upload-img button,
+.upload-pdf b, .upload-pdf button {
+    margin-left: 8px;
+}
+
+/* tool */
+.sign-tool {
+    padding-left: 5px;
+    display: flex;
+    align-items: baseline;
+}
+.tool img {
+    width: 20px;
+    height: 20px;
+    filter: grayscale(.7);
+}
+.tool-active img, .tool button:hover img,
+.tool label:hover img, button.submit-edit:hover {
+    background-color: rgba(79, 97, 232, 0.1);
+    border-radius: 4px;
+    filter: grayscale(0);
+}
+
+/* footer */
+.copy-right {
+    mix-blend-mode: difference;
+    color: #FFF;
+    position: absolute;
+    bottom: 1%;
+    left: 1%;
+}
+
+#selectColor {
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    display: flex;    
+    justify-content: flex-start;
+    align-items: center;
+    transform: translateY(6px)
+}
+#changeColor {
+    height: 8px;
+}
+#selectColorinput:visited img {
+    margin-left: 18px;
+    transform: translateY(2px);
+}
+
+@media(max-width: 1440px) {
+    h2.slogan {
+       font-size: 2.5rem; 
+    }
+    p.slogan {
+        font-size: 1rem;
+    }
+    .card-drag-file {
+        margin: 15% 0;
+    }
+}
+
+@keyframes fadeinRight {
+    0% {
+        transform:translateX(50%);
+        opacity:0;
+    } to {
+        transform:translateX(0);
+        opacity:1;
+    }
 }
