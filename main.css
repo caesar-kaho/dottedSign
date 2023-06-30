@@ -162,6 +162,10 @@ p.slogan {
     color: #728F9B;
     left: 40%;
     bottom: 45%;
+    pointer-events: none; /* 新增此屬性 */
+}
+.card-edit-area.hide-message:after {
+    opacity: 0; /* 設定不透明度為 0，隱藏訊息 */
 }
 .card-drag-pdf {
     background-color: #fff;

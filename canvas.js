@@ -1,6 +1,7 @@
 const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext("2d");
 const clearBtn = document.querySelector("#clear");
+const cardEditArea = document.querySelector(".card-edit-area");
 
 // 設定線條的相關數值
 ctx.lineWidth = 4;
@@ -20,8 +21,8 @@ function getPaintPosition(e) {
     };
   } else {
     return {
-      x: e.touches[0].clientX - canvasSize.left,
-      y: e.touches[0].clientY - canvasSize.top,
+      x: e.changedTouches[0].clientX - canvasSize.left,
+      y: e.changedTouches[0].clientY - canvasSize.top,
     };
   }
 }
@@ -30,6 +31,7 @@ function getPaintPosition(e) {
 function startPosition(e) {
   e.preventDefault();
   isPainting = true;
+  cardEditArea.classList.add("hide-message");
 }
 
 // 結束繪圖時，將狀態關閉，並產生新路徑
