@@ -16,6 +16,9 @@
 	<!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="main.js"></script>
+	<script src="https://unpkg.com/fabric@latest/dist/fabric.js"></script>
+    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+    
 </head>
 <body class="nav-doc">
 	<nav class="navbar navbar-expand-lg navbar-light p-3">
@@ -63,6 +66,7 @@
 		  				<div class="card card-drag-pdf btn-rd-shadow p-5 w-100">
 		  					<div class="card drag-file-block p-2 " id="drag-update">
 		  						<input id="get_pdf" class="d-none" type="file" name="upload" accept="application/pdf" />
+								<canvas id="show_pdf" style="border: 1px solid #000; display: none;"> </canvas>
 		  						<p id="update-name-pdf" class="upload-pdf"></p>
 		  						<a class="drop-pdf text-decoration-none d-flex flex-column justify-content-center align-items-center">
 		  							<img src="img/update-file.svg" alt="img">
@@ -124,7 +128,7 @@
 		  					  			</div>
 		  					  		</div>
 		  					  		<canvas
-										id="canvas"
+										id="draw_pdf"
 										width="500"
 										height="300"
 										>
@@ -174,6 +178,7 @@
 		</div>
 	</main>
 	<script src="canvas.js"></script>
+	<script src="pdf.js"></script>
 </body>
 <footer>
 	<p class="copy-right">© 2009-2022 Kdan Mobile Software Ltd. All Rights Reserved.</p>
