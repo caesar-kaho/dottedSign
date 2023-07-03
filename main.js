@@ -22,6 +22,9 @@ $(document).ready(function() {
     	        var imgName = e.target.files[0].name;
     	        $("#update-name-img").append("<img src='img/icon-img.svg' alt='img'> <b>已選擇圖片</b>"
     	        	+ imgName + "<button id='upload-submit' title='上傳檔案'><img src='img/icon-upload.svg' alt='upload'></button>");
+					setTimeout(function() {
+						$("#update-name-img").empty();
+					  }, 5000);
     	    });
     	});
     	$('#select-pdf-text').click(function(e) {
@@ -30,6 +33,9 @@ $(document).ready(function() {
     	        var pdfName = e.target.files[0].name;
     	        $("#update-name-pdf").append("<img src='img/icon-pdf.svg' alt='pdf'> <b>已選擇檔案</b>"
     	        	+ pdfName + "<button id='upload-submit' title='上傳檔案'><img src='img/icon-upload.svg' alt='upload'></button>");
+					setTimeout(function() {
+						$("#update-name-pdf").empty();
+					  }, 5000);
     	    });
     	});
 
@@ -62,11 +68,17 @@ $(document).ready(function() {
     	          		$("#update-name-pdf").append("<img src='img/icon-pdf.svg' alt='pdf'> <b>已選擇檔案</b>"
     	          			+ droppedFiles[i].name+
     	          			"<button id='upload-submit' title='上傳檔案'><img src='img/icon-upload.svg' alt='upload'></button>");
+							  setTimeout(function() {
+								$("#update-name-pdf").empty();
+							  }, 5000);
     	          		// Upload droppedFiles[i] to server
     	          	} else {
     	          		$("#update-name-img").append("<img src='img/icon-img.svg' alt='img'><b>已選擇圖片</b>"
     	          			+ droppedFiles[i].name+
     	          			"<button id='upload-submit' title='上傳檔案'><img src='img/icon-upload.svg' alt='upload'></button>");
+							  setTimeout(function() {
+								$("#update-name-img").empty();
+							  }, 5000);
     	          	}
     	          	
     	          	

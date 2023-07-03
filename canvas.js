@@ -1,4 +1,4 @@
-const canvas = document.querySelector("#canvas");
+const canvas = document.querySelector("#draw_pdf");
 const ctx = canvas.getContext("2d");
 const clearBtn = document.querySelector("#clear");
 const cardEditArea = document.querySelector(".card-edit-area");
