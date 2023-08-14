@@ -1,180 +1,204 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
+
 <head>
 	<meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>點點簽 DottedSign</title>
 	<!-- Bootstrap 5 css -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Roboto+Slab&display=swap" rel="stylesheet">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
 	<!-- index-main -->
-	<link rel="stylesheet" type="text/css" href="main.css"/>
+	<link rel="stylesheet" type="text/css" href="main.css" />
 
 	<!-- jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="main.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="main.js"></script>
 	<script src="https://unpkg.com/fabric@latest/dist/fabric.js"></script>
-    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
-    
+	<script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+
 </head>
+
 <body class="nav-doc">
 	<nav class="navbar navbar-expand-lg navbar-light p-3">
-	  <div class="container-fluid">
-	    <a class="navbar-brand nav-logo btn btn-light py-2 btn-rd btn-rd-shadow" href="https://www.dottedsign.com/zh-tw/" title="點點簽 DottedSign">
-	    	<img src="img/logo.png" alt="logo">
-	    </a>
-	    <div class="nav-menu">
-	    	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-	    	  <span class="navbar-toggler-icon"></span>
-	    	</button>
-	    	<div class="collapse navbar-collapse" id="navbarNav">
-	    		<ul class="nav align-items-md-center" id="menu-tab" role="tablist">
-	    		  <li class="nav-item nav-doc" tab-name="nav-doc" role="presentation" title="文件">
-	    		    <a class="nav-link page-tab active" id="doc-tab" data-bs-toggle="pill" data-bs-target="#doc" type="button" role="tab" aria-controls="doc" aria-selected="true"><img src="img/icon-doc.svg" alt="">文件</a>
-	    		  </li>
-	    		  <li class="nav-item nav-sign" tab-name="nav-sign" role="presentation" title="簽名">
-	    		    <a class="nav-link page-tab" id="sign-tab" data-bs-toggle="pill" data-bs-target="#sign" type="button" role="tab" aria-controls="sign" aria-selected="false"><img src="img/icon-sign.svg" alt="">簽名</a>
-	    		  </li>
-	    		  <li class="nav-item nav-setting" tab-name="nav-setting" role="presentation" title="設定">
-	    		    <a class="nav-link disabled" id="setting-tab" data-bs-toggle="pill" data-bs-target="#setting" type="button" role="tab" aria-controls="setting" aria-selected="false"><img src="img/icon-setting.svg" alt="">設定</a>
-	    		  </li>
-	    		  <li class="nav-item md-ms-5" role="presentation" title="已登入">
-	    		    <a class="nav-link page-tab" id="login-tab" data-bs-toggle="pill" data-bs-target="#setting" type="button" role="tab" aria-controls="setting" aria-selected="false">
-	    		    	<img src="img/sign-in.png" alt="會員">
-	    		    </a>
-	    		  </li>
-	    		</ul>
-	    	</div>
-	    	<a href="#" class="log-ing ml-5"></a>
-	    </div>
-	    
-	  </div>
+		<div class="container-fluid">
+			<a class="navbar-brand nav-logo btn btn-light py-2 btn-rd btn-rd-shadow"
+				href="https://www.dottedsign.com/zh-tw/" title="點點簽 DottedSign">
+				<img src="img/logo.png" alt="logo">
+			</a>
+			<div class="nav-menu">
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+					aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="nav align-items-md-center" id="menu-tab" role="tablist">
+						<li class="nav-item nav-doc" tab-name="nav-doc" role="presentation" title="文件">
+							<a class="nav-link page-tab active" id="doc-tab" data-bs-toggle="pill" data-bs-target="#doc"
+								type="button" role="tab" aria-controls="doc" aria-selected="true"><img
+									src="img/icon-doc.svg" alt="">文件</a>
+						</li>
+						<li class="nav-item nav-sign" tab-name="nav-sign" role="presentation" title="簽名">
+							<a class="nav-link page-tab" id="sign-tab" data-bs-toggle="pill" data-bs-target="#sign"
+								type="button" role="tab" aria-controls="sign" aria-selected="false"><img
+									src="img/icon-sign.svg" alt="">簽名</a>
+						</li>
+						<li class="nav-item nav-setting" tab-name="nav-setting" role="presentation" title="設定">
+							<a class="nav-link disabled" id="setting-tab" data-bs-toggle="pill"
+								data-bs-target="#setting" type="button" role="tab" aria-controls="setting"
+								aria-selected="false"><img src="img/icon-setting.svg" alt="">設定</a>
+						</li>
+						<li class="nav-item md-ms-5" role="presentation" title="已登入">
+							<a class="nav-link page-tab" id="login-tab" data-bs-toggle="pill" data-bs-target="#setting"
+								type="button" role="tab" aria-controls="setting" aria-selected="false">
+								<img src="img/sign-in.png" alt="會員">
+							</a>
+						</li>
+					</ul>
+				</div>
+				<a href="#" class="log-ing ml-5"></a>
+			</div>
+
+		</div>
 	</nav>
 	<main>
 		<div class="tab-content" id="sign-tabContent">
-		  <div class="tab-pane fade show active" id="doc" role="tabpanel" aria-labelledby="doc-tab">
-		  	<div class="container">
-		  		<div class="row justify-content-center align-items-center">
-		  			<div class="col-md-4 col-sm-12 ms-auto page-title">
-		  				<h2 class="slogan fw-bold mb-2">Anywhere,<br>Anytime.</h2>
-		  				<p class="slogan">開始簽署您的文件</p>
-		  			</div>
-		  			<div class="col-md-7 col-sm-12">
-		  				<div class="card card-drag-pdf btn-rd-shadow p-5 w-100">
-		  					<div class="card drag-file-block p-2 " id="drag-update">
-		  						<input id="get_pdf" class="d-none" type="file" name="upload" accept="application/pdf" />
-								<canvas id="show_pdf" style="border: 1px solid #000; display: none;"> </canvas>
-		  						<p id="update-name-pdf" class="upload-pdf"></p>
-		  						<a class="drop-pdf text-decoration-none d-flex flex-column justify-content-center align-items-center">
-		  							<img src="img/update-file.svg" alt="img">
-		  							<p class="update-text update-drag mb-2">拖曳文件至此，或<span><label for="get_pdf" id="select-pdf-text">選擇檔案</label></span></p>
-		  							<p class="update-text">支援檔案類型：PDF  ≦ 20mb</p>
-		  						</a>
-		  					</div>
-		  				</div>
-		  			</div>
-		  		</div>
-		  	</div>
-		  </div>
-		  <div class="tab-pane fade" id="sign" role="tabpanel" aria-labelledby="sign-tab">
-		  	<div class="container">
-		  		<div class="row card-creat-sign">
-		  			<div class="col-md-4 col-sm-12 ms-auto page-title">
-		  				<h2 class="slogan fw-bold mb-2">Go Green<br>Today.</h2>
-		  				<p class="slogan">創建您的第一枚電子簽名</p>
-		  			</div>
-		  			<div class="col-md-7 col-sm-12">
-		  				<div class="card w-100 btn-rd-shadow">
-		  					<ul class="nav pt-3 ps-3" id="signcard-tab" role="tablist">
-		  					  <li class="nav-item" role="presentation">
-		  					    <a class="nav-link active" id="hand-write-tab" data-bs-toggle="pill" data-bs-target="#hand-write" type="button" role="tab" aria-controls="hand-write" aria-selected="true">手寫模式</a>
-		  					  </li>
-		  					  <li class="nav-item" role="presentation">
-		  					    <a class="nav-link" id="img-update-tab" data-bs-toggle="pill" data-bs-target="#img-update" type="button" role="tab" aria-controls="img-update" aria-selected="false">上傳圖片</a>
-		  					  </li>
-		  					</ul>
-		  					<div class="sign-tab-content" id="pills-tabContent">
-		  					  <div class="tab-pane p-3 fade show active" id="hand-write" role="tabpanel" aria-labelledby="hand-write-tab">
-		  					  	<div class="card card-edit-area p-3">
-		  					  		<div class="card-tool-header d-flex justify-content-between p-2 btn-rd">
-		  					  			<div class="sign-tool tool">
-		  					  				<label for="changeColor" title="選擇顏色" id="selectColor">
-		  					  					<img src="img/tool-color.png" alt="選擇顏色">
-		  					  					<input id="changeColor" type="color" value="#ffcc00">
-		  					  				</label>
-		  					  				<button class="tool-active" title="簽字筆" id="penBtn">
-		  					  					<img src="img/tool-pen.svg" alt="簽字筆">
-		  					  				</button>
-		  					  				<button title="麥克筆" id="markerBtn">
-		  					  					<img src="img/tool-marker.svg" alt="麥克筆">
-		  					  				</button>
-		  					  				<button title="橡皮擦" id="rubberBtn">
-		  					  					<img src="img/tool_eraser.svg" alt="橡皮擦">
-		  					  				</button>
-		  					  			</div>
-		  					  			<div class="edit-tool tool">
-		  					  				<button title="還原" id="undoBtn">
-		  					  					<img src="img/edit-tool-1.svg" alt="還原">
-		  					  				</button>
-		  					  				<button title="重做" id="redoBtn">
-		  					  					<img src="img/edit-tool-2.svg" alt="重做">
-		  					  				</button>									
-		  					  				<button title="重新整理" id="clear">
-		  					  					<img src="img/edit-tool-3.svg" alt="重新整理">
-		  					  				</button>
-		  					  			</div>
-		  					  		</div>
-		  					  		<canvas
-										id="draw_pdf"
-										width="500"
-										height="300"
-										>
-									</canvas>
-		  					  	</div>
-		  					  	<div class="file-editor mt-3">
-		  					  		<p class="fs-5">簽名檔名稱</p>
-		  					  		<input type="text" class="edit-name" size="50">
-		  					  		<button class="submit-edit" title="編輯檔名">
-		  					  			<img src="img/edit-submit.svg" alt="進行編輯">
-		  					  		</button>
-		  					  	</div>
-		  					  	
-		  					  </div>
-		  					  <div class="tab-pane p-3 fade" id="img-update" role="tabpanel" aria-labelledby="img-update-tab">
-		  					  	<div class="card card-drag-file p-2 " id="drag-update">
-		  					  		<input id="get_file" class="d-none" type="file" name="upload" accept="image/*" />
-		  					  		<p id="update-name-img" class="upload-img"></p>
-		  					  		<a class="drop-file text-decoration-none d-flex flex-column justify-content-center align-items-center">
-		  					  			<img src="img/update-file.svg" alt="img">
-		  					  			<p class="update-text update-drag mb-2">拖曳簽名圖檔至此，或<span><label for="get_file" id="select-file-text">選擇檔案</label></span></p>
-		  					  			<p class="update-text">支援檔案類型：PNG, JPEG ≦ 5mb</p>
-		  					  		</a>
-		  					  	</div>
-		  					  </div>
-		  					</div>
-		  				</div>		  				
-		  				<div class="button-group mt-3">
-		  					<button class="clean-canvas btn px-5 py-2 btn-rd btn-secondary" type="reset" id="uploadCancel">清除圖檔</button>
-		  					<button class="save-canvas btn px-5 py-2 btn-rd btn-primary btn-pr-shadow ms-4" >儲存結果</button>
-		  				</div>
-		  			</div>
-		  		</div>
-		  	</div>
-		  </div>
-		  <div class="tab-pane fade" id="setting" role="tabpanel" aria-labelledby="setting-tab">
-		  	<div class="container">
-		  		<div class="row">
-		  			<div class="col-md-5 col-sm-12">
-		  				<h2 class="slogan"></h2>
-		  				<p></p>
-		  			</div>
-		  			<div class="col-md-7 col-sm-12"></div>
-		  		</div>
-		  	</div>
-		  </div>
+			<div class="tab-pane fade show active" id="doc" role="tabpanel" aria-labelledby="doc-tab">
+				<div class="container">
+					<div class="row justify-content-center align-items-center">
+						<div class="col-md-4 col-sm-12 ms-auto page-title">
+							<h2 class="slogan fw-bold mb-2">Anywhere,<br>Anytime.</h2>
+							<p class="slogan">開始簽署您的文件</p>
+						</div>
+						<div class="col-md-7 col-sm-12">
+							<div class="card card-drag-pdf btn-rd-shadow p-5 w-100">
+								<div class="card drag-file-block p-2 " id="drag-update">
+									<input id="get_pdf" class="d-none" type="file" name="upload"
+										accept="application/pdf" />
+									<canvas id="show_pdf" style="border: 1px solid #000; display: none;"> </canvas>
+									<p id="update-name-pdf" class="upload-pdf"></p>
+									<a
+										class="drop-pdf text-decoration-none d-flex flex-column justify-content-center align-items-center">
+										<img src="img/update-file.svg" alt="img">
+										<p class="update-text update-drag mb-2">拖曳文件至此，或<span><label for="get_pdf"
+													id="select-pdf-text">選擇檔案</label></span></p>
+										<p class="update-text">支援檔案類型：PDF ≦ 20mb</p>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="sign" role="tabpanel" aria-labelledby="sign-tab">
+				<div class="container">
+					<div class="row card-creat-sign">
+						<div class="col-md-4 col-sm-12 ms-auto page-title">
+							<h2 class="slogan fw-bold mb-2">Go Green<br>Today.</h2>
+							<p class="slogan">創建您的第一枚電子簽名</p>
+						</div>
+						<div class="col-md-7 col-sm-12">
+							<div class="card w-100 btn-rd-shadow">
+								<ul class="nav pt-3 ps-3" id="signcard-tab" role="tablist">
+									<li class="nav-item" role="presentation">
+										<a class="nav-link active" id="hand-write-tab" data-bs-toggle="pill"
+											data-bs-target="#hand-write" type="button" role="tab"
+											aria-controls="hand-write" aria-selected="true">手寫模式</a>
+									</li>
+									<li class="nav-item" role="presentation">
+										<a class="nav-link" id="img-update-tab" data-bs-toggle="pill"
+											data-bs-target="#img-update" type="button" role="tab"
+											aria-controls="img-update" aria-selected="false">上傳圖片</a>
+									</li>
+								</ul>
+								<div class="sign-tab-content" id="pills-tabContent">
+									<div class="tab-pane p-3 fade show active" id="hand-write" role="tabpanel"
+										aria-labelledby="hand-write-tab">
+										<div class="card card-edit-area p-3">
+											<div class="card-tool-header d-flex justify-content-between p-2 btn-rd">
+												<div class="sign-tool tool">
+													<label for="changeColor" title="選擇顏色" id="selectColor">
+														<img src="img/tool-color.png" alt="選擇顏色">
+														<input id="changeColor" type="color" value="#ffcc00">
+													</label>
+													<button class="tool-active" title="簽字筆" id="penBtn">
+														<img src="img/tool-pen.svg" alt="簽字筆">
+													</button>
+													<button title="麥克筆" id="markerBtn">
+														<img src="img/tool-marker.svg" alt="麥克筆">
+													</button>
+													<button title="橡皮擦" id="rubberBtn">
+														<img src="img/tool_eraser.svg" alt="橡皮擦">
+													</button>
+												</div>
+												<div class="edit-tool tool">
+													<button title="還原" id="undoBtn">
+														<img src="img/edit-tool-1.svg" alt="還原">
+													</button>
+													<button title="重做" id="redoBtn">
+														<img src="img/edit-tool-2.svg" alt="重做">
+													</button>
+													<button title="重新整理" id="clear">
+														<img src="img/edit-tool-3.svg" alt="重新整理">
+													</button>
+												</div>
+											</div>
+											<canvas id="draw_pdf" width="500" height="300">
+											</canvas>
+										</div>
+										<div class="file-editor mt-3">
+											<p class="fs-5">簽名檔名稱</p>
+											<input type="text" class="edit-name" size="50">
+											<button class="submit-edit" title="編輯檔名">
+												<img src="img/edit-submit.svg" alt="進行編輯">
+											</button>
+										</div>
+									</div>
+									<div class="tab-pane p-3 fade" id="img-update" role="tabpanel"
+										aria-labelledby="img-update-tab">
+										<div class="card card-drag-file p-2 " id="drag-update">
+											<input id="get_file" class="d-none" type="file" name="upload"
+												accept="image/*" />
+											<p id="update-name-img" class="upload-img"></p>
+											<a
+												class="drop-file text-decoration-none d-flex flex-column justify-content-center align-items-center">
+												<img src="img/update-file.svg" alt="img">
+												<p class="update-text update-drag mb-2">拖曳簽名圖檔至此，或<span><label
+															for="get_file" id="select-file-text">選擇檔案</label></span></p>
+												<p class="update-text">支援檔案類型：PNG, JPEG ≦ 5mb</p>
+											</a>
+										</div>
+										<div class="card-process" id="img-process">
+											
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="button-group mt-3">
+								<button class="clean-canvas btn px-5 py-2 btn-rd btn-secondary" type="reset"
+									id="uploadCancel">清除圖檔</button>
+								<button
+									class="save-canvas btn px-5 py-2 btn-rd btn-primary btn-pr-shadow ms-4">儲存結果</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="setting" role="tabpanel" aria-labelledby="setting-tab">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-5 col-sm-12">
+							<h2 class="slogan"></h2>
+							<p></p>
+						</div>
+						<div class="col-md-7 col-sm-12"></div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</main>
 	<script src="canvas.js"></script>
@@ -182,7 +206,12 @@
 </body>
 <footer>
 	<p class="copy-right">© 2009-2022 Kdan Mobile Software Ltd. All Rights Reserved.</p>
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+		integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"
+		integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ"
+		crossorigin="anonymous"></script>
 </footer>
+
 </html>

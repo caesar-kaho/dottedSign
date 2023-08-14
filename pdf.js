@@ -75,19 +75,19 @@ document.querySelector("input").addEventListener("change", async (e) => {
 
 // 添加拖曳檔案的事件處理程式
 document.getElementById("drag-update").addEventListener("drop", async (ev) => {
-    ev.preventDefault();
-    ev.stopPropagation();
-    const droppedFiles = ev.dataTransfer.files;
-    if (droppedFiles.length) {
-      const pdfData = await printPDF(droppedFiles[0]);
-      const pdfImage = await pdfToImage(pdfData);
-  
-      pdfCanvas.setWidth(pdfImage.width / window.devicePixelRatio);
-      pdfCanvas.setHeight(pdfImage.height / window.devicePixelRatio);
-  
-      pdfCanvas.setBackgroundImage(pdfImage, pdfCanvas.renderAll.bind(pdfCanvas));
-  
-      const displayElement = document.querySelector("#show_pdf");
-      displayElement.style.display = "block";
-    }
-  });
+  ev.preventDefault();
+  ev.stopPropagation();
+  const droppedFiles = ev.dataTransfer.files;
+  if (droppedFiles.length) {
+    const pdfData = await printPDF(droppedFiles[0]);
+    const pdfImage = await pdfToImage(pdfData);
+
+    pdfCanvas.setWidth(pdfImage.width / window.devicePixelRatio);
+    pdfCanvas.setHeight(pdfImage.height / window.devicePixelRatio);
+
+    pdfCanvas.setBackgroundImage(pdfImage, pdfCanvas.renderAll.bind(pdfCanvas));
+
+    const displayElement = document.querySelector("#show_pdf");
+    displayElement.style.display = "block";
+  }
+});
